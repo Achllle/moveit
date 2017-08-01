@@ -70,8 +70,7 @@ struct InitProxy
     for (std::size_t i = 0; i < args.size(); ++i)
       fake_argv[i] = strdup(args[i].c_str());
 
-    ros::init(fake_argc, fake_argv, ROScppNodeName(),
-              ros::init_options::AnonymousName | ros::init_options::NoSigintHandler);
+    ros::init(fake_argc, fake_argv, ROScppNodeName(), ros::init_options::NoSigintHandler);;
     for (int i = 0; i < fake_argc; ++i)
       delete[] fake_argv[i];
     delete[] fake_argv;
